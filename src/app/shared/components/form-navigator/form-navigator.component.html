@@ -1,0 +1,34 @@
+<div class="kt-section__content kt-section__content--solid">
+  <button  title=" جديد" (click)="reset()" class="btn btn-outline-hover-info btn-elevate btn-circle btn-icon   ">
+    <strong class="ti-plus text-green h4 p-0 font-weight-bolder none pt-2"></strong>
+  </button>
+
+  <button title="الأول" (click)="getFirst()" class="btn btn-outline-hover-info btn-elevate btn-circle btn-icon   " [disabled]="_rank==1" >
+    <strong class="ti-angle-double-left page-link h4 p-0 font-weight-bolder none pt-2" ></strong>
+  </button>
+
+  <button title="السابق" (click)="getPrevious()" class="btn btn-outline-hover-info btn-elevate btn-circle btn-icon   " [disabled]="!_isActive || _rank==1">
+
+      <strong class="ti-angle-left page-link h4 p-0 font-weight-bolder none pt-2"></strong>
+ 
+  </button>
+
+  <!-- <span *ngIf="_rank && _totalCount && permission.Read" class="mt-1">
+    <span class="">{{_rank}}</span> - {{_totalCount}}
+  </span> -->
+
+  <button title="التالي" (click)="getNext()" class="btn btn-outline-hover-info btn-elevate btn-circle btn-icon   " [disabled]="!_isActive || _rank==_totalCount">
+    <strong class=" ti-angle-right page-link h4 p-0 font-weight-bolder none pt-2"></strong>
+  </button>
+
+  <button title="الأخير" (click)="getLast()" class= "btn btn-outline-hover-info btn-elevate btn-circle btn-icon   " [disabled]="_rank && _rank==_totalCount" >
+    <strong class=" ti-angle-double-right page-link h4 p-0 font-weight-bolder none pt-2"></strong>
+  </button>
+  <span *ngIf="allowDelete">
+  <button  title="حذف " (click)="delete()" class=" btn btn-outline-hover-info btn-elevate btn-circle btn-icon   " [disabled]="!_isActive" >
+    <strong class="ti-trash text-danger h4 p-0 font-weight-bolder none pt-2"></strong>
+  </button>
+</span>
+</div>
+
+

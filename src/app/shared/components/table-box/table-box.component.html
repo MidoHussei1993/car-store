@@ -1,0 +1,119 @@
+<div class="card">
+    <div class="body clearfix">
+        <div class="row clearfix">
+            <div class="col-md-4">
+                <input [disabled]="isSearch"
+                       #search="ngModel"
+                       [(ngModel)]="searchval"
+                       type="text"
+                       class="form-control"
+                       placeholder="Search..."
+                       name="search"
+                       (keyup.enter)="searchValue()"
+                       (ngModelChange)="searchValue()">
+            </div>
+            <div class="col-md-3  col-sm-12 text-right ml-auto form-group">
+                <select class="form-control show-tick  d-inline"
+                        style="width: 69px"
+                        title="عدد الصفوف"
+                        (change)="setPageSize($event.target.value)"
+                        tabindex="-98">
+                    <option value="10"
+                            class="text-center">10</option>
+                    <option value="20"
+                            class="text-center">20</option>
+                    <option value="30"
+                            class="text-center">30</option>
+                    <option value="40"
+                            class="text-center">40</option>
+                    <option value="50"
+                            class="text-center">50</option>
+                </select>‏
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12"
+             style="overflow: hidden;">
+            <table class="table table-striped table-hover border rounded"
+                   sortable-table>
+
+                <thead class="bg-dark text-white">
+                    <tr class="">
+                        <th class="text-center font-weight-bold"
+                            *ngFor="let title of titleArray; let i=index">
+                            {{title}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of list; let i=index "
+                        class="slideDown ">
+                        <td class="text-center"
+                            *ngFor="let prop of properties">{{item[prop]}}</td>
+                        <td class="text-center px-2 text-nowrap"
+                            *ngIf="isChoices">
+                            <button
+                                    class="none  p-0 m-0  text-center "
+                                    title="Delete"
+                                    (click)="deleteItem(item)">
+                                <i class="ti-trash h2 mx-2 text-danger"
+                                   [title]="title.file"></i>
+                                   
+                            </button>
+
+                            <button type="button"
+                                    class="file mx-1"
+                                    *ngIf="choices.file"
+                                    (click)="rowEmit(item)">
+                                <i class="text-title fas fa-file-alt h5"
+                                   [title]="title.file"></i></button>
+                            <button type="button"
+                                    class="file  text-center"
+                                    *ngIf="choices.dish"
+                                    (click)="rowDish(item)">
+                                <i class="fas fa-satellite-dish text-warning h5"
+                                   [title]="title.dish"></i></button>
+
+                            <button type="button"
+                                    class="none  text-center p-0 m-0 "
+                                    *ngIf="choices.marker "
+                                    (click)="rowMarker(item)"
+                                    title="Edit">
+                                <i class="ti-pencil h2 mx-2 text-success"
+                                   [title]="title.marker"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row clearfix mx-1 mt-2">
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                    <app-pagination *ngIf="totalNumberOfPages && !(totalNumberOfPages==1)"
+                                    [page]="filterParams.pageNumber"
+                                    [size]="totalNumberOfPages"
+                                    (onChange)="changePageNumber($event)">
+                    </app-pagination>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 form-group text-center">
+                    <app-table-info [page]="filterParams.pageNumber"
+                                    [pageSize]="filterParams.pageSize"
+                                    [total]="totalNumberOfItems"
+                                    [length]="list.length">
+                    </app-table-info>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="row"
+     *ngIf="!(list.length >= 1)">
+    <div class="col-md-12">
+        <h1 class="text-center">there No Data</h1>
+    </div>
+</div>
+
+
+
+

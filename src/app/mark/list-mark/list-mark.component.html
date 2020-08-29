@@ -1,0 +1,30 @@
+<app-page-navigator [Pagetitle]="'Mark List'"
+                    module="Mark"
+                    [active]="'List'"></app-page-navigator>
+
+                    
+    <div class="alert alert-dark p-0"  role="alert">
+        <button  (click)="navigate()" class="btn btn-brand btn-elevate btn-icon-sm my-2 ml-5 "  >Add New Mark</button>
+   </div>
+
+<div class="row clearfix">
+    <div class="col-md-12">
+
+        <app-table-box #table
+            [list]="dataList"
+            [properties]="properties"
+            [titleArray]="titles"
+            [totalNumberOfPages]="totalNumberOfPages"
+            [totalNumberOfItems]="totalNumberOfItems"
+            [isChoices]="true"
+            [choices]="{delete : true,marker:true, file: false }"
+            [filterParams]=" filter"
+            (emitPageNumber)="changePageNumber($event)"
+            (emitpageSize)="changePageSize($event)"
+            (marker)="edit($event)"
+            (delete)="delete($event)"
+            (search)="search($event)"
+            [isSearch]="false">
+        </app-table-box>
+    </div>
+</div>

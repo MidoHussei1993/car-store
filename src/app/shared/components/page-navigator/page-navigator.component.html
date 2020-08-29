@@ -1,0 +1,16 @@
+<div class="block-header">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-6 col-sm-12 pl-3">
+            <h1 class="bigEntrance mt-5 pl-4">{{Pagetitle}}</h1>
+            <ul class="breadcrumb mt-2 pl-4">
+                <li class="breadcrumb-item expandOpen pl-0" style="color:#2196f3;"><a [routerLink]="[ '' ]"><i
+                           class="zmdi zmdi-home mr-1"></i>Home </a></li>
+                <li class="breadcrumb-item expandOpen pl-0 main-icon"><i [class]="mainIcon?mainIcon:'zmdi zmdi-hc-fw'"></i> {{moduleTitle}}</li>
+
+                <li class="breadcrumb-item floating active"><i class="sub-icon" [class]="subIcon?subIcon:'zmdi zmdi-hc-fw'">   </i>{{activetitle}}</li>
+            </ul>
+            <!-- <button *ngIf="themeResponse.hideSitting" class="btn btn-primary btn-icon mobile_menu" type="button" (click)="themeResponse.showRightsideNav = !themeResponse.showRightsideNav"><i class="zmdi zmdi-sort-amount-desc"></i></button> -->
+        </div>
+
+    </div>
+</div>

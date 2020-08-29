@@ -28,9 +28,23 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
+              "src/styles.scss",
+              "node_modules/angular-notifier/styles/types/type-default.css",
+              "node_modules/angular-notifier/styles/types/type-error.css",
+              "node_modules/angular-notifier/styles/types/type-success.css",
+              "node_modules/angular-notifier/styles/themes/theme-material.css",
+              "node_modules/angular-notifier/styles/core.css",
+              "node_modules/sweetalert2/dist/sweetalert2.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/scripts/jquery.min.js",
+              "src/assets/scripts/popper.min.js",
+              "src/assets/scripts/bootstrap.min.js",
+              "src/assets/scripts/scripts.bundle.js"
+            ]
           },
           "configurations": {
             "production": {

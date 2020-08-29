@@ -1,0 +1,72 @@
+// import google fonts
+// @import 'font/fonts';
+
+
+/* Material Icons ============================== */
+@import 'icon/materialicons';
+@import 'icon/themify';
+@import './flaticon.scss';
+
+
+// plugins
+// @import 'plugins/waves';
+@import 'plugins/animate';
+
+
+.none{
+    border:none !important;
+    background: none !important;
+}
+.dark1{
+    color:#1f1e2e;
+}
+.bg-dark1{
+    background-color:#1f1e2e;
+}
+.dark2{
+    color:#181824;
+}
+
+.bg-dark2{
+    background-color:#181824;
+}
+.red-bg {
+    background: #db2d2e;
+}
+.gradient {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+.card {
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    border: 0;
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+    background: rgba(0,0,0,0);
+}
+.card .body {
+    font-weight: 400;
+    border-radius: .35rem;
+    background: #fff;
+    font-size: 14px;
+    color: #222;
+	padding: 20px;
+	box-shadow: 0 0 16px rgba(41,42,51,0.06), 0 6px 20px rgba(41,42,51,0.02);
+}

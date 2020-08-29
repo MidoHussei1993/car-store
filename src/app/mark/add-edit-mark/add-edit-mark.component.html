@@ -1,0 +1,73 @@
+<app-page-navigator [Pagetitle]="isEdit?'Mark Edit':'Mark Add'"
+                    module="Mark"
+                    [active]="isEdit?'Edit':'Add'"></app-page-navigator>
+
+
+      <div class="row alert alert-outline-primary fade show p-1">
+        <div class="col-md-4 col-sm-7  pt-1 mr-auto">
+          <app-form-navigator 
+                              class="mt-2"
+                              [totalCount]="totalCount"
+                              [isActive]="isEdit"
+                              (onReset)="navToCreate()"
+                              (onDelete)="delete()"
+                              (onFirst)="getFirst()"
+                              (onLast)="getLast()"
+                              (onPrevious)="getPrevious()"
+                              (onNext)="getNext()"
+                              >
+          </app-form-navigator>
+        </div>
+        <div class="col-md-4 col-sm-5">
+            <div class="kt-section__content kt-section__content--solid text-right">
+                <button type="button" class="btn btn-brand btn-elevate btn-circle btn-icon mx-2"title="حفظ"
+                (click)="save(form.invalid)"><i class="ti-save tossing"></i></button>
+                <button type="button" class="btn btn-danger btn-elevate btn-circle btn-icon"  title="الغاء"
+                (click)="cancel()"><i class="ti-na tossing"></i></button>
+            </div>
+        </div>
+      </div>
+ 
+  
+<div class="card">
+    <div class="body">
+        <div class=" w-100 h-100">
+
+            <form name="form"
+                  #form="ngForm">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+        
+                        <div class="form-group form-group-marginless">
+                            <div class="form-group">
+                                <label class="font-weight-bolder">Name</label>
+                                <input type="text"
+                                       #name="ngModel"
+                                       name="name"
+                                       [(ngModel)]="mainObject.name"
+                                       class="form-control"
+                                       placeholder="Mark Name"
+                                       required
+                                       minlength="2">
+                                <div class="d-block">
+                                    <ul class="text-danger list-unstyled"
+                                        *ngIf="name.dirty && name.invalid">
+                                        <li *ngIf="name.errors.required">
+                                            You must enter a Mark name
+                                        </li>
+                                        <li *ngIf="name.errors.minlength">
+                                            Mark names must be at least
+                                            {{name.errors.minlength.requiredLength}} characters
+                                        </li>
+                                    </ul>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
